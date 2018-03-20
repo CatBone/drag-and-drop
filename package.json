@@ -1,0 +1,22 @@
+{
+  "name": "drag-and-drop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CatBone/drag-and-drop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CatBone/drag-and-drop/issues"
+  },
+  "homepage": "https://github.com/CatBone/drag-and-drop#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.6.2"
+  }
+}
