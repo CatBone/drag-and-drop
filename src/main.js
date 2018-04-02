@@ -6,6 +6,10 @@ function $id(id) {
 // 输出到html
 function Output(msg) {
   var m = $id('messages')
+  var box = $id('showbox')
+  if (box.offsetHeight == 0) {
+    box.style.display = 'block'
+  }
   m.innerHTML = msg + m.innerHTML
 }
 
@@ -38,7 +42,7 @@ function Init() {
 function FileDragHover(e) {
   e.stopPropagation()
   e.preventDefault()
-  e.target.className = e.type == 'dragover' ? 'hover' : ''
+  e.target.dataset.drag = e.type == 'dragover' ? 'hover' : ''
 }
 
 // 主要逻辑，递归把文件夹树铺平 并对所有文件执行 ParseFile(file) 方法
@@ -104,16 +108,11 @@ function FileSelectHandler(e) {
 function ParseFile(file, path) {
   path = path || ''
   Output(
-    '<p>文件名: <strong>' +
-      file.name +
-      ' </strong>' +
-      '文件类型: <strong>' +
-      file.type +
-      ' </strong> size: <strong>' +
-      '文件大小：<strong>' +
-      file.size +
-      ' </strong> bytes' +
-      '文件路径：' +
-      path
+    `<tr>
+      <th scope="row">${file.name}</th>
+      <td>${file.type}</td>
+      <td>${file.size}</td>
+      <td>${path}</td>
+    </tr>`
   )
 }

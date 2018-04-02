@@ -1,18 +1,21 @@
 #filedrag {
   height: 70px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 58px;
+  flex-direction: column;
+  color: #999;
+  border: 2px dashed #999;
 }
 .drag-box {
   width: 100%;
 }
-#filedrag.hover {
-  color: #f00;
-  border-color: #f00;
-  border-style: solid;
-  box-shadow: inset 0 3px 4px #888;
-}
+
 html,
 body {
   overflow-x: hidden; /* Prevent scroll on narrow devices */
+  font-size: 14px;
+  color: #666666;
 }
 
 body {
@@ -103,4 +106,75 @@ body {
 }
 .lh-150 {
   line-height: 1.5;
+}
+#showbox {
+  display: none;
+}
+#filedrag[data-drag='hover'] {
+  color: #fff;
+  border: 2px solid #28a745;
+  color: #28a745;
+}
+.bs-example {
+  position: relative;
+  padding: 45px 15px 15px;
+  border-color: #e5e5e5 #eee #eee;
+  border-style: solid;
+  border-width: 1px 0;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+/* Echo out a label for the example */
+.bs-example:after {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #959595;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  content: 'Example';
+}
+
+.bs-example-padded-bottom {
+  padding-bottom: 24px;
+}
+
+/* Tweak display of the code snippets when following an example */
+.bs-example + .highlight,
+.bs-example + .zero-clipboard + .highlight {
+  margin: -15px -15px 15px;
+  border-width: 0 0 1px;
+  border-radius: 0;
+}
+
+/* Make the examples and snippets not full-width */
+@media (min-width: 768px) {
+  .bs-example {
+    margin-right: 0;
+    margin-left: 0;
+    background-color: #fff;
+    border-color: #ddd;
+    border-width: 1px;
+    border-radius: 4px 4px 0 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .bs-example + .highlight,
+  .bs-example + .zero-clipboard + .highlight {
+    margin-top: -16px;
+    margin-right: 0;
+    margin-left: 0;
+    border-width: 1px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  .bs-example-standalone {
+    border-radius: 4px;
+  }
+}
+
+/* Undo width of container */
+.bs-example .container {
+  width: auto;
 }

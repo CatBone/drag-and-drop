@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="./src/style.css">
+  <title>拖拽上传文件</title>
   <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="./src/style.css">
 </head>
 
 <body class="bg-light">
@@ -20,8 +20,7 @@
     <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">Settings</a>
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" href="#">Action</a>
             <a class="dropdown-item" href="#">Another action</a>
@@ -35,98 +34,31 @@
     </div>
   </nav>
   <form id="upload" action="upload.php" method="POST" enctype="multipart/form-data">
-
-    <fieldset>
-      <legend>HTML asdFile Upload</legend>
-
-      <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
-
-      <div>
-        <label for="fileselect">Files to upload:</label>
-        <input type="file" id="fileselect" name="fileselect[]" multiple="multiple" webkitdirectory />
-        <div>or drop files here</div>
-      </div>
-
-    </fieldset>
-
+    <input type="file" id="fileselect" name="fileselect[]" multiple="multiple" webkitdirectory />
   </form>
 
-  <div id="messages">
-    <p>Status Messages</p>
-  </div>
-  <main role="main" class="container">
-    <div class="d-flex align-items-center btn btn-outline-success rounded box-shadow" id="filedrag">
-        <h5 class="mb-0 drag-box">拖拽到此区域</h5>
+  <main role="main" class="container" id="main">
+    <div class="d-flex align-items-center btn rounded box-shadow" id="filedrag">
+      拖拽到此区域
     </div>
-
-    <div class="my-3 p-3 bg-white rounded box-shadow">
-      <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
-      <div class="media text-muted pt-3">
-        <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
-        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-          <strong class="d-block text-gray-dark">@username</strong>
-          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-          ut fermentum massa justo sit amet risus.
-        </p>
+    <div class="my-3 p-3 bg-white rounded box-shadow" id="showbox">
+      <div class="bs-example" data-example-id="hoverable-table">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>文件名字</th>
+              <th>文件类型</th>
+              <th>文件大小</th>
+              <th>文件路径</th>
+            </tr>
+          </thead>
+          <tbody id="messages">
+          </tbody>
+        </table>
       </div>
-      <div class="media text-muted pt-3">
-        <img data-src="holder.js/32x32?theme=thumb&bg=e83e8c&fg=e83e8c&size=1" alt="" class="mr-2 rounded">
-        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-          <strong class="d-block text-gray-dark">@username</strong>
-          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-          ut fermentum massa justo sit amet risus.
-        </p>
-      </div>
-      <div class="media text-muted pt-3">
-        <img data-src="holder.js/32x32?theme=thumb&bg=6f42c1&fg=6f42c1&size=1" alt="" class="mr-2 rounded">
-        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-          <strong class="d-block text-gray-dark">@username</strong>
-          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-          ut fermentum massa justo sit amet risus.
-        </p>
-      </div>
-      <small class="d-block text-right mt-3">
-        <a href="#">All updates</a>
-      </small>
-    </div>
-
-    <div class="my-3 p-3 bg-white rounded box-shadow">
-      <h6 class="border-bottom border-gray pb-2 mb-0">Suggestions</h6>
-      <div class="media text-muted pt-3">
-        <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
-        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-          <div class="d-flex justify-content-between align-items-center w-100">
-            <strong class="text-gray-dark">Full Name</strong>
-            <a href="#">Follow</a>
-          </div>
-          <span class="d-block">@username</span>
-        </div>
-      </div>
-      <div class="media text-muted pt-3">
-        <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
-        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-          <div class="d-flex justify-content-between align-items-center w-100">
-            <strong class="text-gray-dark">Full Name</strong>
-            <a href="#">Follow</a>
-          </div>
-          <span class="d-block">@username</span>
-        </div>
-      </div>
-      <div class="media text-muted pt-3">
-        <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
-        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-          <div class="d-flex justify-content-between align-items-center w-100">
-            <strong class="text-gray-dark">Full Name</strong>
-            <a href="#">Follow</a>
-          </div>
-          <span class="d-block">@username</span>
-        </div>
-      </div>
-      <small class="d-block text-right mt-3">
-        <a href="#">All suggestions</a>
-      </small>
     </div>
   </main>
+  <script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
   <script src="./src/main.js"></script>
 </body>
 
