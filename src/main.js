@@ -26,16 +26,10 @@ function Init() {
 
   // file select
   fileselect.addEventListener('change', FileSelectHandler, false)
-  // is XHR2 available?
-  var xhr = new XMLHttpRequest()
-  if (xhr.upload) {
-    // 防止Opera中的问题, Opera支持File,FileList,FileReader, 但是不支持拖放文件, 并且不支持xhr2
-    // file drop
-    filedrag.addEventListener('dragover', FileDragHover, false)
-    filedrag.addEventListener('dragleave', FileDragHover, false)
-    filedrag.addEventListener('drop', FileSelectHandler, false)
-    filedrag.style.display = 'block'
-  }
+  filedrag.addEventListener('dragover', FileDragHover, false)
+  filedrag.addEventListener('dragleave', FileDragHover, false)
+  filedrag.addEventListener('drop', FileSelectHandler, false)
+  filedrag.style.display = 'block'
 }
 
 // hover样式修改
