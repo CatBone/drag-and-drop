@@ -97,7 +97,9 @@ function FileSelectHandler(e) {
       // webkitGetAsEntry  能把一个DataTransferItem返回的文件转换成FileEntry，目前仅webkit支持
       // it may be renamed to simply getAsEntry() in the future
       var getAsEntry = e.webkitGetAsEntry || e.getAsEntry
+
       var item = getAsEntry.call(e)
+      console.log(item)
       if (item) {
         traverseFileTree(item)
       }

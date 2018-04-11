@@ -112,8 +112,9 @@ body {
 }
 #filedrag[data-drag='hover'] {
   color: #fff;
-  border: 2px solid #28a745;
-  color: #28a745;
+  border: 2px solid var(--danger);
+  color: var(--danger);
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 .bs-example {
   position: relative;
