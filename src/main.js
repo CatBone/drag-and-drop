@@ -88,12 +88,10 @@ function FileSelectHandler(e) {
     // 拖拽的文件(夹)
     var items = e.dataTransfer.items
     ;[].forEach.call(items, function(e) {
-      // webkitGetAsEntry  能把一个DataTransferItem返回的文件转换成FileEntry，目前仅webkit支持
-      // it may be renamed to simply getAsEntry() in the future
+      // webkitGetAsEntry 能把一个DataTransferItem返回的文件转换成FileEntry
       var getAsEntry = e.webkitGetAsEntry || e.getAsEntry
 
       var item = getAsEntry.call(e)
-      console.log(item)
       if (item) {
         traverseFileTree(item)
       }
