@@ -57,7 +57,8 @@ function traverseFileTree(item) {
       ParseFile(e, path)
     })
   } else if (item.isDirectory) {
-    // 以下都是FileSystem 的 API
+    console.log(item)
+    // 以下都是FileSystem 的 API 
     var dirReader = item.createReader()
     /**
      * Object.prototype.toString.call(dirReader)
